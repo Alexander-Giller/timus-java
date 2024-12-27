@@ -1,30 +1,8 @@
-package org.utils;
+package org.coffee.timus;
 
-public class Matrix {
+import java.util.*;
 
-    public static void diagonalWolker(int[][] matrix, int size) {
-        int currentLine = 0;
-        int currentColumn = 0;
-        int i = 0;
-        int j = 0;
-        for (int k = 0; k < size * size; ++k) {
-            System.out.print(matrix[i][j] + " ");
-
-            if (i == 0 || j == size - 1) {
-                if (currentLine < size - 1) {
-                    currentLine++;
-                } else if (currentColumn < size - 1) {
-                    currentColumn++;
-                }
-                i = currentLine;
-                j = currentColumn;
-
-            } else {
-                i--;
-                j++;
-            }
-        }
-    }
+public class Task_1319 {
 
     public static void diagonalWolkerWithFill(int[][] matrix, int size) {
         int currentLine = 0;
@@ -32,6 +10,7 @@ public class Matrix {
         int i = 0;
         int j = 0;
         for (int k = 1; k <= size * size; ++k) {
+//            System.out.print(matrix[i][j] + " ");
             matrix[i][j] = k;
 
             if (i == 0 || j == size - 1) {
@@ -74,6 +53,24 @@ public class Matrix {
         }
 
         return resultMatrix;
+    }
+
+    public static void main(String[] args) {
+        try (Scanner in = new Scanner(System.in)) {
+            int n = in.nextInt();
+            int[][] matrix = new int[n][n];
+            diagonalWolkerWithFill(matrix, n);
+            diagonalMirror(matrix, n);
+            matrix = rotateRight(matrix, n);
+
+            for (int i = 0; i < n; ++i) {
+                for (int j = 0; j < n; ++j) {
+                    System.out.print(matrix[i][j] + " ");
+                }
+                System.out.println();
+            }
+
+        }
     }
 
 }
