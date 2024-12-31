@@ -28,7 +28,6 @@ public class Task_1263 {
             }
         }
 
-
     }
 
 }
